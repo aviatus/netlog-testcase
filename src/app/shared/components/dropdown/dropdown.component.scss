@@ -1,0 +1,8 @@
+.disable-block {
+  cursor: not-allowed;
+  opacity: .7;
+
+  .mat-form-field-wrapper {
+    pointer-events: none;
+  }
+}
