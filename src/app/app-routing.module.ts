@@ -1,22 +1,18 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { CustomLayoutComponent } from './custom-layout/custom-layout.component';
 
 const routes: Routes = [
   {
     path: '',
-    component: CustomLayoutComponent,
-    children: []
+    loadChildren: () => import('./master/master.module').then(m => m.MasterModule),
+  },
+  {
+    path: '**', redirectTo: ''
   }
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes, {
-    // preloadingStrategy: PreloadAllModules,
-    scrollPositionRestoration: 'enabled',
-    relativeLinkResolution: 'corrected',
-    anchorScrolling: 'enabled'
-  })],
+  imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
 })
 export class AppRoutingModule {

@@ -1,12 +1,12 @@
-import { BrowserModule } from '@angular/platform-browser';
+import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
+import { FlexLayoutModule } from '@angular/flex-layout';
+import { BrowserModule } from '@angular/platform-browser';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
+import { VexModule } from '../@vex/vex.module';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { VexModule } from '../@vex/vex.module';
-import { HttpClientModule } from '@angular/common/http';
-import { CustomLayoutModule } from './custom-layout/custom-layout.module';
 
 @NgModule({
   declarations: [AppComponent],
@@ -15,10 +15,9 @@ import { CustomLayoutModule } from './custom-layout/custom-layout.module';
     AppRoutingModule,
     BrowserAnimationsModule,
     HttpClientModule,
-
-    // Vex
-    VexModule,
-    CustomLayoutModule
+    AppRoutingModule,
+    FlexLayoutModule,
+    VexModule
   ],
   providers: [],
   bootstrap: [AppComponent]
