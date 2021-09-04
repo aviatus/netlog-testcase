@@ -1,6 +1,6 @@
-import { mergeDeep } from '../utils/merge-deep';
 import { ConfigName } from '../interfaces/config-name.model';
 import { Config } from '../interfaces/config.model';
+import { mergeDeep } from '../utils/merge-deep';
 
 const defaultConfig: Config = {
   id: ConfigName.apollo,
@@ -9,7 +9,7 @@ const defaultConfig: Config = {
   layout: 'horizontal',
   boxed: false,
   sidenav: {
-    title: 'VEX',
+    title: 'Fon Analizi',
     imageUrl: 'assets/img/demo/logo.svg',
     showCollapsePin: true,
     state: 'expanded'
