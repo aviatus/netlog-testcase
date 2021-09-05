@@ -3,4 +3,6 @@ export class FundFilterModel {
   fundType: string;
   startDate: Date;
   endDate: Date;
+  period: string;
+  ready: boolean;
 }
