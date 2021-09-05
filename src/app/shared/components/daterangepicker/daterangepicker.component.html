@@ -1,8 +1,10 @@
 <mat-form-field class="w-full px-2" appearance="standard">
   <mat-label>{{label}}</mat-label>
   <mat-date-range-input [min]="minDate" [max]="maxDate" [formGroup]="range" [rangePicker]="picker">
-    <input matStartDate formControlName="start" placeholder="Başlangıç">
-    <input matEndDate formControlName="end" placeholder="Bitiş">
+    <input matStartDate formControlName="start" placeholder="Başlangıç" [value]="startDate"
+      (dateChange)="startDateChanged($event.value)">
+    <input matEndDate formControlName="end" placeholder="Bitiş" [value]="endDate"
+      (dateChange)="endDateChanged($event.value)">
   </mat-date-range-input>
   <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
   <mat-date-range-picker #picker></mat-date-range-picker>

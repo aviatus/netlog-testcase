@@ -26,7 +26,13 @@ export class DaterangepickerComponent implements OnInit {
 
   constructor() { }
 
-  ngOnInit(): void {
+  ngOnInit(): void { }
+
+  startDateChanged(date: Date) {
+    this.startDateChange.emit(date);
   }
 
+  endDateChanged(date: Date) {
+    this.endDateChange.emit(date);
+  }
 }
