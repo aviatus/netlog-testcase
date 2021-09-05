@@ -28,7 +28,10 @@ export class ReportStatics {
     },
   ];
 
-  static REPORT_TIME_RANGE_TYPES: Array<DropdownModel> = [
+  static REPORT_TIME_PERIOD_DAILY = 'daily';
+  static REPORT_TIME_PERIOD_WEEKLY = 'weekly';
+  static REPORT_TIME_PERIOD_MONTHLY = 'monthly';
+  static REPORT_TIME_PERIOD_DROPDOWN_TYPES: Array<DropdownModel> = [
     {
       uniqueId: 'daily',
       renderText: 'Günlük'
@@ -41,5 +44,5 @@ export class ReportStatics {
       uniqueId: 'monthly',
       renderText: 'Aylık'
     }
-  ]
+  ];
 }
