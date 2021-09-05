@@ -2,7 +2,9 @@ import { Observable } from 'rxjs';
 import { map } from 'rxjs/internal/operators/map';
 import { startWith } from 'rxjs/internal/operators/startWith';
 
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import {
+  ChangeDetectionStrategy, Component, EventEmitter, Input, OnInit, Output
+} from '@angular/core';
 import { FormControl } from '@angular/forms';
 import icArrowDropDown from '@iconify/icons-ic/twotone-arrow-drop-down';
 import icClose from '@iconify/icons-ic/twotone-close';
@@ -11,7 +13,8 @@ import { DropdownModel } from '@shared/models';
 @Component({
   selector: 'app-autocomplete',
   templateUrl: './autocomplete.component.html',
-  styleUrls: ['./autocomplete.component.scss']
+  styleUrls: ['./autocomplete.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class AutocompleteComponent implements OnInit {
   @Output('selectedItemChange') selectedItemChange = new EventEmitter<DropdownModel>();
@@ -23,7 +26,7 @@ export class AutocompleteComponent implements OnInit {
     if (!items) return;
     this.filteredItems$ = this.stateCtrl.valueChanges.pipe(
       startWith(''),
-      map(item => item ? this.filterItems(item) : items.slice())
+      map((item) => item ? this.filterItems(item) : items.slice())
     );
   }
   get items(): Array<DropdownModel> {
@@ -35,6 +38,7 @@ export class AutocompleteComponent implements OnInit {
 
   stateCtrl: FormControl;
   filteredItems$: Observable<DropdownModel[]>;
+
   icClose = icClose;
   icArrowDropDown = icArrowDropDown;
 
@@ -51,7 +55,7 @@ export class AutocompleteComponent implements OnInit {
       item.renderText.toLowerCase().indexOf(name.toLowerCase()) === 0);
   }
 
-  selectedItemChanged(item: DropdownModel) {
-    this.selectedItemChange.emit(item);
+  selectedItemChanged(itemName: string) {
+    this.selectedItemChange.emit(this.items.find(item => item.renderText === itemName));
   }
 }
