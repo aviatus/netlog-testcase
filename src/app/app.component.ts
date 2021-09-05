@@ -6,6 +6,7 @@ import { Platform } from '@angular/cdk/platform';
 import { DOCUMENT } from '@angular/common';
 import { Component, Inject, LOCALE_ID, Renderer2 } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import icBaselineAssessment from '@iconify/icons-ic/baseline-assessment';
 import icLayers from '@iconify/icons-ic/twotone-layers';
 
 import { ConfigName } from '../@vex/interfaces/config-name.model';
@@ -82,7 +83,7 @@ export class AppComponent {
         type: 'link',
         label: 'Fon Analizi',
         route: '/',
-        icon: icLayers
+        icon: icBaselineAssessment
       }
     ];
   }

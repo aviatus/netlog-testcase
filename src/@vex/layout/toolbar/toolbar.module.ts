@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { BreadcrumbsModule } from 'src/@vex/components/breadcrumbs/breadcrumbs.module';
 import { CommonModule } from '@angular/common';
 import { ToolbarComponent } from './toolbar.component';
 import { FlexLayoutModule } from '@angular/flex-layout';
@@ -34,7 +34,8 @@ import { ContainerModule } from '../../directives/container/container.module';
     RouterModule,
     NavigationItemModule,
     MegaMenuModule,
-    ContainerModule
+    ContainerModule,
+    BreadcrumbsModule
   ],
   exports: [ToolbarComponent]
 })

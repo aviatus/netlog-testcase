@@ -1,23 +1,25 @@
-import { Component, ElementRef, HostBinding, Input, OnInit } from '@angular/core';
-import { LayoutService } from '../../services/layout.service';
-import icBookmarks from '@iconify/icons-ic/twotone-bookmarks';
-import emojioneUS from '@iconify/icons-emojione/flag-for-flag-united-states';
-import emojioneDE from '@iconify/icons-emojione/flag-for-flag-germany';
-import icMenu from '@iconify/icons-ic/twotone-menu';
-import { ConfigService } from '../../services/config.service';
 import { map } from 'rxjs/operators';
-import icPersonAdd from '@iconify/icons-ic/twotone-person-add';
+
+import { Component, ElementRef, HostBinding, Input, OnInit } from '@angular/core';
+import emojioneDE from '@iconify/icons-emojione/flag-for-flag-germany';
+import emojioneUS from '@iconify/icons-emojione/flag-for-flag-united-states';
+import icArrowDropDown from '@iconify/icons-ic/twotone-arrow-drop-down';
+import icAssignment from '@iconify/icons-ic/twotone-assignment';
 import icAssignmentTurnedIn from '@iconify/icons-ic/twotone-assignment-turned-in';
 import icBallot from '@iconify/icons-ic/twotone-ballot';
+import icBookmarks from '@iconify/icons-ic/twotone-bookmarks';
 import icDescription from '@iconify/icons-ic/twotone-description';
-import icAssignment from '@iconify/icons-ic/twotone-assignment';
-import icReceipt from '@iconify/icons-ic/twotone-receipt';
 import icDoneAll from '@iconify/icons-ic/twotone-done-all';
-import { NavigationService } from '../../services/navigation.service';
-import icArrowDropDown from '@iconify/icons-ic/twotone-arrow-drop-down';
-import { PopoverService } from '../../components/popover/popover.service';
-import { MegaMenuComponent } from '../../components/mega-menu/mega-menu.component';
+import icMenu from '@iconify/icons-ic/twotone-menu';
+import icPersonAdd from '@iconify/icons-ic/twotone-person-add';
+import icReceipt from '@iconify/icons-ic/twotone-receipt';
 import icSearch from '@iconify/icons-ic/twotone-search';
+
+import { MegaMenuComponent } from '../../components/mega-menu/mega-menu.component';
+import { PopoverService } from '../../components/popover/popover.service';
+import { ConfigService } from '../../services/config.service';
+import { LayoutService } from '../../services/layout.service';
+import { NavigationService } from '../../services/navigation.service';
 
 @Component({
   selector: 'vex-toolbar',
@@ -25,7 +27,6 @@ import icSearch from '@iconify/icons-ic/twotone-search';
   styleUrls: ['./toolbar.component.scss']
 })
 export class ToolbarComponent implements OnInit {
-
   @Input() mobileQuery: boolean;
 
   @Input()
@@ -33,6 +34,7 @@ export class ToolbarComponent implements OnInit {
   hasShadow: boolean;
 
   navigationItems = this.navigationService.items;
+  crumbs = ['Fon Analizi']
 
   isHorizontalLayout$ = this.configService.config$.pipe(map(config => config.layout === 'horizontal'));
   isVerticalLayout$ = this.configService.config$.pipe(map(config => config.layout === 'vertical'));
@@ -54,9 +56,9 @@ export class ToolbarComponent implements OnInit {
   icArrowDropDown = icArrowDropDown;
 
   constructor(private layoutService: LayoutService,
-              private configService: ConfigService,
-              private navigationService: NavigationService,
-              private popoverService: PopoverService) { }
+    private configService: ConfigService,
+    private navigationService: NavigationService,
+    private popoverService: PopoverService) { }
 
   ngOnInit() {
   }
