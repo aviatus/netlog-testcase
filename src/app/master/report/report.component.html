@@ -1,9 +1,11 @@
 <div class="p-5">
-  <app-report-control (selectedFundFiltersChange)="selectedFundFiltersChanged($event)"></app-report-control>
+  <app-report-control [funds]="funds" (selectedFundTypeChange)="selectedFundTypeChanged($event)"
+    (selectedFundFiltersChange)="selectedFundFiltersChanged($event)">
+  </app-report-control>
   <div class="mt-3">
-    <app-chart [data]="selectedFundHistory"></app-chart>
+    <app-report-chart [data]="selectedFundHistory" [viewPeriod]="selectedViewPeriod"></app-report-chart>
   </div>
   <div class="mt-3">
-    <app-table [data]="selectedFundHistory"></app-table>
+    <app-table [data]="selectedFundHistory" [disabledColumns]="disabledColumns"></app-table>
   </div>
 </div>

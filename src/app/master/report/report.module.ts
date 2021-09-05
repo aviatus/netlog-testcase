@@ -7,13 +7,15 @@ import {
 } from '@shared/components';
 import { FundService, FundSpkService } from '@shared/services';
 
+import { ReportChartComponent } from './report-chart/report-chart.component';
 import { ReportControlComponent } from './report-control/report-control.component';
 import { ReportComponent } from './report.component';
 
 @NgModule({
   declarations: [
     ReportComponent,
-    ReportControlComponent
+    ReportControlComponent,
+    ReportChartComponent
   ],
   imports: [
     DropdownModule,
