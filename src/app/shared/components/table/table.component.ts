@@ -15,12 +15,12 @@ interface Ahmet {
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class TableComponent implements OnInit {
+  @Input() disabledColumns: string[];
   @Input() set data(data: FundHistoryModel[]) {
     this._data = data;
 
     if (data) {
-      this.displayedColumns = Object.keys(data[0]);
-      this.columnsToDisplay = this.displayedColumns.slice();
+      this.displayedColumns = Object.keys(data[0]).filter((column) => !this.disabledColumns.includes(column));
     }
   }
   get data(): FundHistoryModel[] {
@@ -28,7 +28,6 @@ export class TableComponent implements OnInit {
   }
 
   displayedColumns: string[] = [];
-  columnsToDisplay: string[] = this.displayedColumns.slice();
 
   private _data: FundHistoryModel[];
 
