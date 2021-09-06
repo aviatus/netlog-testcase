@@ -1,20 +1,12 @@
-
-
-import { ChangeDetectionStrategy, Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { FundHistoryModel } from '@shared/models';
 
-interface Ahmet {
-  a: string;
-  b: string;
-}
-
 @Component({
-  selector: 'app-table',
-  templateUrl: './table.component.html',
-  styleUrls: ['./table.component.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush
+  selector: 'app-report-table',
+  templateUrl: './report-table.component.html',
+  styleUrls: ['./report-table.component.scss']
 })
-export class TableComponent implements OnInit {
+export class ReportTableComponent implements OnInit {
   @Input() disabledColumns: string[];
   @Input() set data(data: FundHistoryModel[]) {
     this._data = data;
@@ -34,4 +26,5 @@ export class TableComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void { }
+
 }

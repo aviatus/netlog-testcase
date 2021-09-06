@@ -3,9 +3,9 @@
     (selectedFundFiltersChange)="selectedFundFiltersChanged($event)">
   </app-report-control>
   <div class="mt-3">
-    <app-report-chart [data]="selectedFundHistory" [viewPeriod]="selectedViewPeriod"></app-report-chart>
+    <app-report-chart [fundData]="selectedFundHistory" [viewPeriod]="fundFilter?.period"></app-report-chart>
   </div>
   <div class="mt-3">
-    <app-table [data]="selectedFundHistory" [disabledColumns]="disabledColumns"></app-table>
+    <app-report-table [data]="selectedFundHistory" [disabledColumns]="disabledColumns"></app-report-table>
   </div>
 </div>
