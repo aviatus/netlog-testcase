@@ -87,12 +87,12 @@ export class ReportChartComponent {
 
     // Set Values For Chart Data
     this.displayData.dataset = ReportStatics.REPORT_CHART_VIEW_FEATURES.map((seriesname) => {
-      const dataofSeries = avgValues.map((value) => value.find((val) => val.seriesname === seriesname))
+      const dataSeries = avgValues.map((value) => value.find((val) => val.seriesname === seriesname))
         .map((val) => { return { value: val.value * 10 } });
 
       return {
         seriesname,
-        data: dataofSeries
+        data: dataSeries
       };
     });
   }
