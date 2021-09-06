@@ -1,6 +1,6 @@
-<mat-form-field appearance="standard" [ngClass]="{'disable-block': disabled}" class="w-full px-2">
+<mat-form-field appearance="standard" class="w-full px-2">
   <mat-label>{{label}}</mat-label>
-  <input type="text" [formControl]="stateCtrl" [ngModel]="selectedItem?.renderText" [matAutocomplete]="auto" matInput>
+  <input type="text" [formControl]="stateCtrl" [value]="selectedItem?.renderText" [matAutocomplete]="auto" matInput>
   <mat-autocomplete #auto="matAutocomplete" (optionSelected)="selectedItemChanged($event.option.value)">
     <mat-option *ngFor="let item of filteredItems$ | async" [value]="item.renderText">
       {{ item.renderText }}

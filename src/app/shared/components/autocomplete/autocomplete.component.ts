@@ -47,6 +47,7 @@ export class AutocompleteComponent implements OnInit {
 
   ngOnInit() {
     this.stateCtrl = new FormControl();
+    this.stateCtrl.valueChanges.subscribe(value => this.selectedItemChanged(value));
   }
 
   filterItems(name: string) {
@@ -55,6 +56,7 @@ export class AutocompleteComponent implements OnInit {
   }
 
   selectedItemChanged(itemName: string) {
-    this.selectedItemChange.emit(this.items.find(item => item.renderText === itemName));
+    this.selectedItem = this.items.find(item => item.renderText === itemName);
+    this.selectedItemChange.emit(this.selectedItem);
   }
 }
