@@ -4,6 +4,7 @@ import { LayoutService } from 'src/@vex/services/layout.service';
 
 import { CommonModule, DatePipe } from '@angular/common';
 import { NgModule } from '@angular/core';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { FundService, FundSpkService } from '@shared/services';
 
 import { ConfigPanelModule } from '../../@vex/components/config-panel/config-panel.module';
@@ -29,7 +30,8 @@ import { MasterComponent } from './master.component';
     ConfigPanelModule,
     SidebarModule,
     QuickpanelModule,
-    SharedModule
+    SharedModule,
+    MatSnackBarModule
   ],
   providers: [
     LayoutService,
