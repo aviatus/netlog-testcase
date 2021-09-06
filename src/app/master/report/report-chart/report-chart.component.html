@@ -1,0 +1,8 @@
+<mat-card class="overflow-hidden" style="height: 500px;">
+  <ng-container *ngIf="isDataAvailable">
+    <app-chart [data]="displayData"></app-chart>
+  </ng-container>
+  <ng-container *ngIf="!isDataAvailable">
+    <div class="text-hint text-center"><span class="m-auto">No data to display</span></div>
+  </ng-container>
+</mat-card>
