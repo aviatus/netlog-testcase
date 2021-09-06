@@ -27,7 +27,7 @@ export class ReportControlComponent implements OnInit {
     }
   }
   get funds() {
-    return;
+    return this._funds;
   }
 
   selectedFund: DropdownModel;
