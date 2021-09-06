@@ -17,11 +17,11 @@ import { DropdownModel } from '@shared/models';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class AutocompleteComponent implements OnInit {
-  @Output('selectedItemChange') selectedItemChange = new EventEmitter<DropdownModel>();
-  @Output('filterTextChange') filterTextChange = new EventEmitter<string>();
+  @Output() selectedItemChange = new EventEmitter<DropdownModel>();
+  @Output() filterTextChange = new EventEmitter<string>();
 
-  @Input('label') label: string;
-  @Input('items') set items(items: Array<DropdownModel>) {
+  @Input() label: string;
+  @Input() set items(items: Array<DropdownModel>) {
     this._items = items;
     if (!items) return;
     this.filteredItems$ = this.stateCtrl.valueChanges.pipe(
@@ -32,9 +32,8 @@ export class AutocompleteComponent implements OnInit {
   get items(): Array<DropdownModel> {
     return this._items;
   }
-  @Input('selectedItem') selectedItem: DropdownModel;
-  @Input('filterText') filterText: string;
-  @Input('disabled') disabled: boolean = false;
+  @Input() selectedItem: DropdownModel;
+  @Input() filterText: string;
 
   stateCtrl: FormControl;
   filteredItems$: Observable<DropdownModel[]>;

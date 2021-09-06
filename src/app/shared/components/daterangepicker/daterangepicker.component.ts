@@ -10,14 +10,14 @@ import { FormControl, FormGroup } from '@angular/forms';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class DaterangepickerComponent implements OnInit {
-  @Output('startDateChange') startDateChange = new EventEmitter<Date>();
-  @Output('endDateChange') endDateChange = new EventEmitter<Date>();
+  @Output() startDateChange = new EventEmitter<Date>();
+  @Output() endDateChange = new EventEmitter<Date>();
 
-  @Input('startDate') startDate: Date;
-  @Input('endDate') endDate: Date;
-  @Input('maxDate') maxDate: Date;
-  @Input('minDate') minDate: Date;
-  @Input('label') label: string;
+  @Input() startDate: Date;
+  @Input() endDate: Date;
+  @Input() maxDate: Date;
+  @Input() minDate: Date;
+  @Input() label: string;
 
   range = new FormGroup({
     start: new FormControl(),

@@ -11,14 +11,13 @@ import { DropdownModel } from '../../models/dropdown.model';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class DropdownComponent implements OnInit {
-  @Output('selectedItemChange') selectedItemChange = new EventEmitter<DropdownModel>();
-  @Output('filterTextChange') filterTextChange = new EventEmitter<string>();
+  @Output() selectedItemChange = new EventEmitter<DropdownModel>();
+  @Output() filterTextChange = new EventEmitter<string>();
 
-  @Input('label') label: string;
-  @Input('items') items: Array<DropdownModel>;
-  @Input('selectedItem') selectedItem: DropdownModel;
-  @Input('filterText') filterText: string;
-  @Input('disabled') disabled: boolean = false;
+  @Input() label: string;
+  @Input() items: Array<DropdownModel>;
+  @Input() selectedItem: DropdownModel;
+  @Input() filterText: string;
 
   constructor() { }
 
