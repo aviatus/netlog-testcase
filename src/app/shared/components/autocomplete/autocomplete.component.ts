@@ -1,9 +1,9 @@
-import { Observable } from 'rxjs';
+import { Observable, Subscription } from 'rxjs';
 import { map } from 'rxjs/internal/operators/map';
 import { startWith } from 'rxjs/internal/operators/startWith';
 
 import {
-  ChangeDetectionStrategy, Component, EventEmitter, Input, OnInit, Output
+  ChangeDetectionStrategy, Component, EventEmitter, Input, OnDestroy, OnInit, Output
 } from '@angular/core';
 import { FormControl } from '@angular/forms';
 import icArrowDropDown from '@iconify/icons-ic/twotone-arrow-drop-down';
@@ -16,7 +16,7 @@ import { DropdownModel } from '@shared/models';
   styleUrls: ['./autocomplete.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class AutocompleteComponent implements OnInit {
+export class AutocompleteComponent implements OnInit, OnDestroy {
   @Output() selectedItemChange = new EventEmitter<DropdownModel>();
   @Output() filterTextChange = new EventEmitter<string>();
 
@@ -36,6 +36,7 @@ export class AutocompleteComponent implements OnInit {
   @Input() filterText: string;
 
   stateCtrl: FormControl;
+  stateCtrlSubscription: Subscription;
   filteredItems$: Observable<DropdownModel[]>;
 
   icClose = icClose;
@@ -47,7 +48,7 @@ export class AutocompleteComponent implements OnInit {
 
   ngOnInit() {
     this.stateCtrl = new FormControl();
-    this.stateCtrl.valueChanges.subscribe(value => this.selectedItemChanged(value));
+    this.stateCtrlSubscription = this.stateCtrl.valueChanges.subscribe(value => this.selectedItemChanged(value));
   }
 
   filterItems(name: string) {
@@ -58,5 +59,9 @@ export class AutocompleteComponent implements OnInit {
   selectedItemChanged(itemName: string) {
     this.selectedItem = this.items.find(item => item.renderText === itemName);
     this.selectedItemChange.emit(this.selectedItem);
+  }
+
+  ngOnDestroy() {
+    this.stateCtrlSubscription.unsubscribe();
   }
 }
