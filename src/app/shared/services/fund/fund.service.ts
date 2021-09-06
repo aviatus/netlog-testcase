@@ -1,4 +1,4 @@
-import { Observable } from 'rxjs';
+import { Observable } from 'rxjs/internal/Observable';
 
 export abstract class FundService {
   abstract getFunds(type: string): Observable<object>;
