@@ -35,7 +35,7 @@ export class ReportControlComponent implements OnInit {
   selectedFundHistory: FundHistoryModel[];
   selectedStartDate: Date;
   selectedEndDate: Date;
-  selectedPeriod = ReportStatics.REPORT_TIME_PERIOD_DROPDOWN_TYPES[1];
+  selectedPeriod: DropdownModel;
 
   dropdownFunds: DropdownFundsModel[];
   maxDate: Date = new Date();
