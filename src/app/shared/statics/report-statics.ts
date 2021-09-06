@@ -45,4 +45,10 @@ export class ReportStatics {
       renderText: 'Aylık'
     }
   ];
+
+  static REPORT_CHART_VIEW_FEATURES = ['BankaBonosu', 'Diger', 'DevletTahvili', 'DovizOdemeliBono', 'DovizOdemeliTahvil', 'Eurobond',
+    'FonKatilmaBelgesi', 'GayrimenkulSertifikasi', 'HazineBonosu', 'KamuDisBorclanmaAraci', 'KamuKiraSertifikasi', 'KatilimHesabi',
+    'KiymetliMaden', 'OzelSektorKiraSertifikasi', 'TurevAraci', 'VarligaDayaliMenkulKiymet', 'VadeliMevduat', 'YabanciBorclanmaAraci',
+    'YabanciHisseSenedi', 'YabanciMenkulKiymet'];
+
 }
