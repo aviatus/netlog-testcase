@@ -18,6 +18,6 @@ export class FundSpkService implements FundService {
 
   getFundHistory(fundCode: string, fundType: string, startDate: Date, endDate: Date) {
     return this.http.get(this.url + '/PortfoyDegerleri/' + fundCode + '/' + fundType + '/' +
-      DateUtil.setDateToString(startDate) + '/' + DateUtil.setDateToString(endDate));
+      DateUtil.formatDateToYYYYMMDD(startDate) + '/' + DateUtil.formatDateToYYYYMMDD(endDate));
   }
 }
