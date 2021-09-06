@@ -1,14 +1,13 @@
-import { ChangeDetectionStrategy, Component, Input, OnChanges, OnInit } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-chart',
   templateUrl: './chart.component.html',
-  styleUrls: ['./chart.component.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush
+  styleUrls: ['./chart.component.scss']
 })
-export class ChartComponent implements OnInit, OnChanges {
-  @Input('data') data: Object[];
-  @Input('chartConfig') chartConfig = {
+export class ChartComponent {
+  @Input() data: object[];
+  @Input() chartConfig = {
     width: '100%',
     height: '500',
     type: 'msline',
@@ -17,8 +16,4 @@ export class ChartComponent implements OnInit, OnChanges {
 
   constructor() { }
 
-  ngOnInit(): void {
-  }
-
-  ngOnChanges() { }
 }

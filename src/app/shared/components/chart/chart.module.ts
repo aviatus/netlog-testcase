@@ -9,7 +9,7 @@ import { MatCardModule } from '@angular/material/card';
 
 import { ChartComponent } from './chart.component';
 
-FusionChartsModule.fcRoot(FusionCharts, Charts, FusionTheme)
+FusionChartsModule.fcRoot(FusionCharts, Charts, FusionTheme);
 
 @NgModule({
   declarations: [ChartComponent],
