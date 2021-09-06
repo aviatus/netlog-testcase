@@ -1,5 +1,9 @@
 <div *ngIf="data" class="overflow-x-scroll">
   <table mat-table [dataSource]="data" class="mat-elevation-z8">
+    <ng-container [matColumnDef]="dateColumn">
+      <th id="dateColumn" mat-header-cell *matHeaderCellDef>{{dateColumn}}</th>
+      <td mat-cell *matCellDef="let element"> {{element.Tarih | date: 'dd.MM.yyyy'}} </td>
+    </ng-container>
     <ng-container [matColumnDef]="column" *ngFor="let column of displayedColumns;index as index">
       <th [id]="index" mat-header-cell *matHeaderCellDef> {{column}} </th>
       <td mat-cell *matCellDef="let element">
@@ -7,10 +11,10 @@
       </td>
     </ng-container>
 
-    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    <tr mat-header-row *matHeaderRowDef="columnsToDisplay"></tr>
+    <tr mat-row *matRowDef="let row; columns: columnsToDisplay;"></tr>
   </table>
 </div>
-<mat-card *ngIf="!data">
-  <div class="text-hint text-center">No data to display</div>
+<mat-card class="flex items-center justify-center" *ngIf="!data">
+  <div class="text-hint">No data to display</div>
 </mat-card>

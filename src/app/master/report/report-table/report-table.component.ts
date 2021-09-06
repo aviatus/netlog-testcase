@@ -13,6 +13,7 @@ export class ReportTableComponent implements OnInit {
 
     if (data) {
       this.displayedColumns = Object.keys(data[0]).filter((column) => !this.disabledColumns.includes(column));
+      this.columnsToDisplay = [this.dateColumn, ...this.displayedColumns];
     }
   }
   get data(): FundHistoryModel[] {
@@ -20,6 +21,8 @@ export class ReportTableComponent implements OnInit {
   }
 
   displayedColumns: string[] = [];
+  columnsToDisplay: string[] = [];
+  dateColumn = 'Tarih';
 
   private _data: FundHistoryModel[];
 
