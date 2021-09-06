@@ -2,7 +2,6 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
 import { MasterComponent } from './master.component';
-import { ReportComponent } from './report/report.component';
 
 const routes: Routes = [
   {
@@ -10,7 +9,7 @@ const routes: Routes = [
     component: MasterComponent,
     children: [
       {
-        path: '', component: ReportComponent
+        path: '', loadChildren: () => import('./report/report.module').then(m => m.ReportModule),
       }
     ]
   }
