@@ -22,7 +22,7 @@ export class ReportControlComponent implements OnInit {
           uniqueId: fund.Kodu,
           renderText: fund.Kodu + ' - ' + fund.Adi,
           type: fund.Tipi
-        } as DropdownFundsModel
+        } as DropdownFundsModel;
       });
     }
   }
@@ -63,7 +63,7 @@ export class ReportControlComponent implements OnInit {
   selectedFundTypeChanged(fundType: DropdownModel) {
     this.selectedFund = null;
     this.selectedFundType = fundType;
-    this.selectedFundTypeChange.emit(fundType.uniqueId)
+    this.selectedFundTypeChange.emit(fundType.uniqueId);
   }
 
   selectedFundChanged(fund: DropdownModel) {

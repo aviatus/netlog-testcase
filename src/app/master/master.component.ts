@@ -1,4 +1,4 @@
-import { filter, map, startWith } from 'rxjs/operators';
+import { filter, map } from 'rxjs/operators';
 
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { NavigationEnd, Router } from '@angular/router';
@@ -20,7 +20,6 @@ export class MasterComponent implements OnInit {
 
   toolbarShadowEnabled$ = this.router.events.pipe(
     filter(event => event instanceof NavigationEnd),
-    startWith(null),
     map(() => checkRouterChildsData(this.router.routerState.root.snapshot, data => data.toolbarShadowEnabled))
   );
 

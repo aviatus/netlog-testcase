@@ -3,13 +3,13 @@
     <app-dropdown class="col-span-3" [items]="ReportStatics.FUND_DROPDOWN_TYPES" [(selectedItem)]="selectedFundType"
       (selectedItemChange)="selectedFundTypeChanged($event)" label="Font Tipi Seçiniz">
     </app-dropdown>
-    <app-autocomplete class="col-span-3" [items]="dropdownFunds" [disabled]="!selectedFundType"
-      [(selectedItem)]="selectedFund" (selectedItemChange)="selectedFundChanged($event)" label="Fon Tipi">
+    <app-autocomplete class="col-span-3" [items]="dropdownFunds" [(selectedItem)]="selectedFund"
+      (selectedItemChange)="selectedFundChanged($event)" label="Fon Tipi">
     </app-autocomplete>
     <app-daterangepicker class="col-span-3" [minDate]="minDate" [maxDate]="maxDate" [(startDate)]="selectedStartDate"
       [(endDate)]="selectedEndDate" label="Başlangıç Tarihi - Bitiş Tarihi"></app-daterangepicker>
     <app-dropdown class="col-span-2" label="Gösterim Periyodu" [items]="ReportStatics.REPORT_TIME_PERIOD_DROPDOWN_TYPES"
-      [selectedItem]="selectedPeriod">
+      [(selectedItem)]="selectedPeriod" (selectedItemChange)="selectedPeriodChanged($event)">
     </app-dropdown>
     <div class="col-span-1 m-auto">
       <button class="btn btn-sm" appearance="standard" mat-flat-button color="primary"
