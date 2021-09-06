@@ -6,7 +6,6 @@ import { AutocompleteModule } from './components/autocomplete/autocomplete.modul
 import { ChartModule } from './components/chart/chart.module';
 import { DaterangepickerModule } from './components/daterangepicker/daterangepicker.module';
 import { DropdownModule } from './components/dropdown/dropdown.module';
-import { TableModule } from './components/table/table.module';
 
 @NgModule({
   imports: [
@@ -14,7 +13,6 @@ import { TableModule } from './components/table/table.module';
     FormsModule
   ],
   exports: [
-    TableModule,
     ChartModule,
     DropdownModule,
     DaterangepickerModule,

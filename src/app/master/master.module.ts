@@ -2,7 +2,7 @@ import { PopoverService } from 'src/@vex/components/popover/popover.service';
 import { ConfigService } from 'src/@vex/services/config.service';
 import { LayoutService } from 'src/@vex/services/layout.service';
 
-import { CommonModule } from '@angular/common';
+import { CommonModule, DatePipe } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { FundService, FundSpkService } from '@shared/services';
 
@@ -29,12 +29,13 @@ import { MasterComponent } from './master.component';
     ConfigPanelModule,
     SidebarModule,
     QuickpanelModule,
-    SharedModule,
+    SharedModule
   ],
   providers: [
     LayoutService,
     PopoverService,
     ConfigService,
+    DatePipe,
     { provide: FundService, useClass: FundSpkService }
   ]
 })
