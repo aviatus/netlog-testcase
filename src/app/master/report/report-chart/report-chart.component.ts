@@ -5,6 +5,26 @@ import { Component, Input } from '@angular/core';
 import { FundHistoryModel } from '@shared/models';
 import { FundUtil } from '@shared/utils';
 
+export interface PeriodicElement {
+  name: string;
+  position: number;
+  weight: number;
+  symbol: string;
+}
+
+const ELEMENT_DATA: PeriodicElement[] = [
+  { position: 1, name: 'Hydrogen', weight: 1.0079, symbol: 'H' },
+  { position: 2, name: 'Helium', weight: 4.0026, symbol: 'He' },
+  { position: 3, name: 'Lithium', weight: 6.941, symbol: 'Li' },
+  { position: 4, name: 'Beryllium', weight: 9.0122, symbol: 'Be' },
+  { position: 5, name: 'Boron', weight: 10.811, symbol: 'B' },
+  { position: 6, name: 'Carbon', weight: 12.0107, symbol: 'C' },
+  { position: 7, name: 'Nitrogen', weight: 14.0067, symbol: 'N' },
+  { position: 8, name: 'Oxygen', weight: 15.9994, symbol: 'O' },
+  { position: 9, name: 'Fluorine', weight: 18.9984, symbol: 'F' },
+  { position: 10, name: 'Neon', weight: 20.1797, symbol: 'Ne' },
+];
+
 @Component({
   selector: 'app-report-chart',
   templateUrl: './report-chart.component.html',
@@ -28,6 +48,9 @@ export class ReportChartComponent {
     return this._fundData;
   }
 
+  displayedColumns: string[] = ['position', 'name', 'weight', 'symbol'];
+  dataSource = ELEMENT_DATA;
+
   groupByPeriod = [];
 
   options = {
@@ -42,10 +65,10 @@ export class ReportChartComponent {
     useTransformPositioning: true,
     mobileBreakpoint: 640,
     useBodyForBreakpoint: false,
-    minCols: 1,
-    maxCols: 100,
-    minRows: 1,
-    maxRows: 100,
+    minCols: 5,
+    maxCols: 5,
+    minRows: 4,
+    maxRows: 4,
     maxItemCols: 100,
     minItemCols: 1,
     maxItemRows: 100,
@@ -55,7 +78,7 @@ export class ReportChartComponent {
     defaultItemCols: 1,
     defaultItemRows: 1,
     fixedColWidth: 105,
-    fixedRowHeight: 105,
+    fixedRowHeight: 60,
     keepFixedHeightInMobile: false,
     keepFixedWidthInMobile: false,
     scrollSensitivity: 10,
@@ -86,11 +109,11 @@ export class ReportChartComponent {
     scrollToNewItems: false
   };
 
-  items = [{ cols: 2, rows: 1, y: 0, x: 0 },
-  { cols: 2, rows: 1, y: 0, x: 0 },
-  { cols: 2, rows: 1, y: 0, x: 0 },
+  items = [{ cols: 3, rows: 3, y: 0, x: 0 },
+  { cols: 2, rows: 3, y: 0, x: 3 },
+  { cols: 4, rows: 1, y: 3, x: 0 },
   {
-    cols: 2, rows: 1, y: 0, x: 0, dragEnabled: true,
+    cols: 1, rows: 1, y: 3, x: 4, dragEnabled: true,
     resizeEnabled: true,
   }];
 
