@@ -1,8 +1,12 @@
 <mat-card class="flex items-center justify-center overflow-hidden" style="height: 500px;">
-  <ng-container *ngIf="isDataAvailable">
-    <app-chart [data]="displayData"></app-chart>
-  </ng-container>
+  <!-- <ng-container *ngIf="isDataAvailable"> -->
+  <gridster [options]="options">
+    <gridster-item [item]="item" *ngFor="let item of items;index as index">
+      <app-chart *ngIf="!index" [data]="displayData"></app-chart>
+    </gridster-item>
+  </gridster>
+  <!-- </ng-container>
   <ng-container *ngIf="!isDataAvailable">
     <span class="text-hint">No data to display</span>
-  </ng-container>
+  </ng-container> -->
 </mat-card>

@@ -1,3 +1,5 @@
+import { GridsterModule } from 'angular-gridster2';
+
 import { CommonModule, DatePipe } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
@@ -6,7 +8,7 @@ import { MatSelectModule } from '@angular/material/select';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatTableModule } from '@angular/material/table';
 import {
-  AutocompleteModule, ChartModule, DaterangepickerModule, DropdownModule
+    AutocompleteModule, ChartModule, DaterangepickerModule, DropdownModule
 } from '@shared/components';
 import { FundService, FundSpkService } from '@shared/services';
 
@@ -29,6 +31,7 @@ import { ReportComponent } from './report.component';
     ReportRoutingModule,
     DaterangepickerModule,
     ChartModule,
+    GridsterModule,
     AutocompleteModule,
     MatCardModule,
     MatButtonModule,
